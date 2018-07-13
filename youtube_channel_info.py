@@ -19,7 +19,7 @@ def get_youtube_channel(keyword):
     driver.get("https://www.youtube.com/results?search_query=" + urllib.quote(keyword) + "&sp=EgIQAkIECAESAA%253D%253D")
     
     # 搜尋結果數量
-    count = driver.find_element_by_id("result-count").text.encode("utf-8")
+    count = driver.find_element_by_id("result-count").text.encode("utf-8").replace(",", "")
     count = int(count.split(" ")[1])
     # 估計需要 scroll 的次數
     count = int(math.ceil((count/10)-2))
